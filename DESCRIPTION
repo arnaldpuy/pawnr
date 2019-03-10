@@ -1,0 +1,34 @@
+Package: pawnr
+Title: Computation of PAWN Sensitivity Indices
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Arnald",
+           family = "Puy",
+           role = c("aut", "cre"),
+           email = "arnald.puy@gmail.com")
+Description: It computes PAWN sensitivity indices following 
+    the approach described in Pianosi and Wagener 2015 <10.1016/j.envsoft.2015.01.004> and 
+    Pianosi and Wagener 2018 <10.1016/j.envsoft.2018.07.019>. The 'pawnr' package also implements
+    the algorithm by Khorashadi Zadeh et al. 2017 <doi:10.1016/j.envsoft.2017.02.001 > to 
+    calculate the approximation error in the computation of PAWN indices, an approach 
+    that allows to robustly screen influential from non-influential model inputs. Finally, it 
+    also provides functions to obtain publication-quality figures of the model output 
+    uncertainty and sensitivity-related analysis.
+License: GPL-3
+Encoding: UTF-8
+Imports: 
+    boot (>= 1.3-20),
+    data.table (>= 1.12.0),
+    ggplot2 (>= 3.1.0),
+    magrittr,
+    parallel (>= 3.5.2),
+    randtoolbox (>= 1.17.1),
+    Rdpack (>= 0.7),
+    rlang (>= 0.3.1),
+    stats
+RdMacros: Rdpack
+LazyData: true
+RoxygenNote: 6.1.1
+Depends: R (>= 3.4.0)
+Suggests: 
+    testthat
