@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/arnaldpuy/pawnr.svg?branch=master)](https://travis-ci.com/arnaldpuy/pawnr)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/arnaldpuy/pawnr?branch=master&svg=true)](https://ci.appveyor.com/project/arnaldpuy/pawnr)
 
 # pawnr
 
