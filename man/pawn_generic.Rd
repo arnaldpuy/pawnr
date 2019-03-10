@@ -30,7 +30,7 @@ The bootstrap is conducted without replacement, as recommended by
 }
 \examples{
 \donttest{# Create matrix:
-A <- randtoolbox::sobol(n = 1000, dim = 8)
+A <- randtoolbox::sobol(n = 100, dim = 8)
 # Compute model output:
 Y <- sobol_Fun(A)
 T <- pawn_generic(data = A, Y = Y, n = 10, test = median, R = 50 )}

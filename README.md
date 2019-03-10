@@ -1,13 +1,17 @@
+[![Build Status](https://travis-ci.com/arnaldpuy/pawnr.svg?branch=master)](https://travis-ci.com/arnaldpuy/pawnr)
+
 # pawnr
 
-The goal of pawnr is to ...
+The goal of `pawnr` is to provide a set of functions to compute and visualize PAWN 
+sensitivity indices in the R environment. 
 
 ## Installation
 
-You can install the released version of pawnr from [CRAN](https://CRAN.R-project.org) with:
+So far, only the development version is available. To install it, do as follows:
 
 ``` r
-install.packages("pawnr")
+install.packages("devtools")
+devtools::install_github("arnaldpuy/pawnr", build_vignettes = TRUE)
 ```
 
 ## Example

@@ -7,7 +7,7 @@
 plot_pawn(data)
 }
 \arguments{
-\item{data}{The output of the pawn_ci function.}
+\item{data}{The output of the \code{pawn_ci} function.}
 }
 \value{
 A ggplot object
