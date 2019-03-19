@@ -9,6 +9,15 @@ student_ci <- function(x) {
   return(cbind(original, low.ci, high.ci))
 }
 
+# Quantile CI
+quantile_ci <- function(x) {
+  original <- mean(x)
+  ci <- stats::quantile(x, probs = c(0.025, 0.975))
+  high.ci <- ci[[2]]
+  low.ci <- ci[[1]]
+  return(cbind(original, low.ci, high.ci))
+}
+
 #' Computation of confidence intervals
 #'
 #' @param data The output of the \code{pawn_indices} function.
@@ -27,7 +36,7 @@ student_ci <- function(x) {
 #' pawn_ci(Ti)}
 pawn_ci <- function(data) {
   parameters <- colnames(data)
-  dt <- data.table::data.table(t(data[, lapply(.SD, student_ci)]))[
+  dt <- data.table::data.table(t(data[, lapply(.SD, quantile_ci)]))[
     , parameters:= cbind(parameters)
     ]
   dt <- data.table::setcolorder(dt, "parameters")
