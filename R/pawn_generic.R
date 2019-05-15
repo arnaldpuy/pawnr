@@ -32,10 +32,9 @@ pawnG <- function(data, Y, n, test) {
   melted <- data.table::melt(dt,
                              measure.vars = 1:(ncol(dt) - 1),
                              variable.name = "parameters")
-  ID <- melted[, .I]
   out <- melted[order(parameters, value)][
     , list(chunks(Y, n)), parameters][
-    , ID:= ID][
+    , ID:= .I][
     , Y_unc:= replicate(n * ncol(data), Y_unc, simplify = FALSE)][
     , ks:= mapply(stats::ks.test, Y_unc, V1), list(parameters, ID)][
     , test(ks), parameters][
