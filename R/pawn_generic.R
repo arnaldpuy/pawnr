@@ -1,10 +1,7 @@
 
 # DIVIDE A VECTOR INTO N CHUNKS -----------------------------------------------
 
-chunks <- function(x, n) {
-    out <- split(x, ceiling(seq_along(x) / (length(x) / n)))
-    return(out)
-}
+chunks <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE))
 
 # PARALLEL VERSION OF REPLICATE -----------------------------------------------
 
@@ -38,8 +35,7 @@ pawnG <- function(data, Y, n, test) {
     , Y_unc:= replicate(n * ncol(data), Y_unc, simplify = FALSE)][
     , ks:= mapply(stats::ks.test, Y_unc, V1), list(parameters, ID)][
     , test(ks), parameters][
-    , V1
-    ]
+    , V1]
   return(out)
 }
 
