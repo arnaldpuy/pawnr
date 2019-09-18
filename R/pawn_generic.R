@@ -30,16 +30,17 @@ pawnG <- function(data, Y, n, test) {
                              measure.vars = 1:(ncol(dt) - 1),
                              variable.name = "parameters")
   out <- melted[order(parameters, value)][
-    , list(chunks(Y, n)), parameters][
+    , .(chunks(Y, n)), parameters][
+    , Y_unc:= .(rep(.(Y_unc), times = n * ncol(data)))][
     , ID:= .I][
-    , Y_unc:= replicate(n * ncol(data), Y_unc, simplify = FALSE)][
-    , ks:= mapply(stats::ks.test, Y_unc, V1), list(parameters, ID)][
-    , test(ks), parameters][
+    , results:= .(.(mapply(stats::ks.test, Y_unc, V1))), ID][
+    , statistic:= sapply(results, function(x) x[, 1]$statistic)][
+    , test(statistic), parameters][
     , V1]
   return(out)
 }
 
-# BOOTSTRAP PAWN INDEX (GENERIC) ----------------------------------------------
+# BOOTSTRAP PAWN INDEX (GENERIC) -----------------------------------------------
 
 #' Computation of PAWN indices (generic approach)
 #'
